@@ -1,0 +1,3 @@
+include ':library1'
+include ':app'
+rootProject.name = "ItceLibrary Host"

@@ -1,8 +1,7 @@
-package itce.library.itcelibraryhost
+package itce.library.library1
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import itce.library.library1.Utility
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

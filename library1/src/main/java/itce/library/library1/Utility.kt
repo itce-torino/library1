@@ -4,10 +4,10 @@ import android.app.Activity
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 
-open class Utility {
+class Utility {
     lateinit var context: Activity
 
-    open fun sum(a: Int, b: Int): Int {
+    fun sum(a: Int, b: Int): Int {
         return a + b
     }
 

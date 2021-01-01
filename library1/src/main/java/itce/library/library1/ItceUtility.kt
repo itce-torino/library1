@@ -4,7 +4,7 @@ import android.app.Activity
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 
-class ItceUtility {
+object ItceUtility {
     var context: Activity? = null
 
     fun sum(a: Int, b: Int): Int {

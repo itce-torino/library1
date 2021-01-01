@@ -2,6 +2,8 @@ package itce.library.host
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import itce.library.library1.ItceHelper
+import itce.library.library1.ItceUtility
 import itce.library.library1.R
 
 class MainActivity : AppCompatActivity() {

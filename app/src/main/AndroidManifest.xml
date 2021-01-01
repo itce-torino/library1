@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ItceLibraryHost">
-        <activity android:name="itce.library.library1.MainActivity">
+        <activity android:name="itce.library.host.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

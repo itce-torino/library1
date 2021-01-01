@@ -1,4 +1,4 @@
-package itce.library.library1
+package itce.library.host
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

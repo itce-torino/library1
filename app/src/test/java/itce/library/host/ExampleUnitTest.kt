@@ -1,4 +1,4 @@
-package itce.library.library1
+package itce.library.host
 
 import org.junit.Test
 

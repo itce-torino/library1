@@ -4,8 +4,8 @@ import android.app.Activity
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 
-class Utility {
-    lateinit var context: Activity
+class ItceUtility {
+    var context: Activity? = null
 
     fun sum(a: Int, b: Int): Int {
         return a + b
@@ -19,11 +19,11 @@ class Utility {
     private var choise: Answer = Answer.NO
 
     private fun infoDialog(
-            activity: Activity,
-            inMessage: String,
-            modePos: String,
-            modeNeg: String,
-            modeNeut: String
+        activity: Activity,
+        inMessage: String,
+        modePos: String,
+        modeNeg: String,
+        modeNeut: String
     ) {
 
         val message = "ATTENTION!\n\n$inMessage\n\n"
@@ -62,12 +62,12 @@ class Utility {
     }
 
     fun showToast(
-            activity: Activity,
-            message: String,
-            modePos: String,
-            modeNeg: String,
-            modeNeut: String,
-            stopExecution: Boolean = false
+        activity: Activity,
+        message: String,
+        modePos: String,
+        modeNeg: String,
+        modeNeut: String,
+        stopExecution: Boolean = false
     ): Answer {
         if (message.isNotEmpty() && message.isNotBlank()) {
 

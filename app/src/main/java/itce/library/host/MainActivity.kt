@@ -12,13 +12,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val ret = display()
-
+        ItceHelper.justToast(
+            this,
+            "Ecco il messaggio: " + ret.toString(),
+            2
+        )
 
     }
 
     fun display(): Int {
-      //  return Utility.sum(16 + 20)
-        return (16 + 20)
+        return ItceUtility.sum(16, 20)
+        // return (16 + 20)
     }
 
 }

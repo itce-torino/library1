@@ -54,7 +54,6 @@ object ItceUtility {
         alert.show()
     }
 
-
     private fun userChoice(chosen: Answer, function: Runnable?) {
         choice = chosen
         if (function != null) {

@@ -11,10 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val ret = thisDisplay()
+
         ItceUtility.showToast(
             this,
-            "Ecco il messaggio: " + ret.toString(),
+            "Execution of 'ItceUtility.sum(16, 20)' (on Yes)",
             "Yes",
             //  funPos = thisDisplay(),
             "NO",

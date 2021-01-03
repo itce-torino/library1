@@ -22,6 +22,7 @@ object ItceUtility {
         activity: Activity,
         inMessage: String,
         modePos: String,
+        funPos: Runnable,
         modeNeg: String,
         modeNeut: String
     ) {
@@ -30,41 +31,45 @@ object ItceUtility {
 
         val builder = AlertDialog.Builder(activity)
         builder.setMessage(message)
-                .setCancelable(false)
-                // positive button text and action
-                .setPositiveButton(modePos) { dialog, _ ->
-                    choise = Answer.YES
-                    userChoise(Answer.YES)
-                    dialog.dismiss()
-                }
-                .setNegativeButton(modeNeg) { dialog, _ ->
-                    userChoise(Answer.NO)
-                    dialog.dismiss()
-                }
-                .setNeutralButton(modeNeut) { dialog, _ ->
-                    choise = Answer.NEUTRAL
-                    dialog.dismiss()
-                }
+            .setCancelable(false)
+            // positive button text and action
+            .setPositiveButton(modePos) { dialog, _ ->
+                choise = Answer.YES
+                userChoose(Answer.YES, funPos)
+                dialog.dismiss()
+            }
+            .setNegativeButton(modeNeg) { dialog, _ ->
+                userChoose(Answer.NO, funPos)
+                dialog.dismiss()
+            }
+            .setNeutralButton(modeNeut) { dialog, _ ->
+                choise = Answer.NEUTRAL
+                dialog.dismiss()
+            }
 
         val alert = builder.create()
         alert.show()
     }
 
-    private fun userChoise(choosen: Answer) {
-        choise = choosen
-        if (choosen === Answer.YES)
-            Toast.makeText(context, "YOUR CHOISE YES", Toast.LENGTH_LONG)
-                    .show()
-        else
-            if (choosen === Answer.NO)
+
+    private fun userChoose(chosen: Answer, funPos: Runnable) {
+        choise = chosen
+        if (chosen === Answer.YES) {
+            if (funPos == null)
+                Toast.makeText(context, "YOUR CHOISE YES", Toast.LENGTH_LONG).show()
+            else
+                funPos.run()
+        } else
+            if (chosen === Answer.NO)
                 Toast.makeText(context, "YOUR CHOISE NO", Toast.LENGTH_LONG)
-                        .show()
+                    .show()
     }
 
     fun showToast(
         activity: Activity,
         message: String,
         modePos: String,
+        funPos: Runnable,
         modeNeg: String,
         modeNeut: String,
         stopExecution: Boolean = false
@@ -72,11 +77,11 @@ object ItceUtility {
         if (message.isNotEmpty() && message.isNotBlank()) {
 
             if ((message.startsWith("error", ignoreCase = true))
-                    or (message.startsWith("info", ignoreCase = true))
-                    or (message.startsWith("question", ignoreCase = true))
-                    or stopExecution
+                or (message.startsWith("info", ignoreCase = true))
+                or (message.startsWith("question", ignoreCase = true))
+                or stopExecution
             )
-                infoDialog(activity, message, modePos, modeNeg, modeNeut)
+                infoDialog(activity, message, modePos, funPos, modeNeg, modeNeut)
             else
                 Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
         }
@@ -86,7 +91,7 @@ object ItceUtility {
 
     fun todoFeature(activity: Activity) {
         Toast.makeText(activity, "Sorry, this feature is not available, yet.", Toast.LENGTH_LONG)
-                .show()
+            .show()
 
     }
 }

@@ -11,18 +11,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val ret = display()
-        ItceHelper.justToast(
+        val ret = thisDisplay()
+        ItceUtility.showToast(
             this,
             "Ecco il messaggio: " + ret.toString(),
-            2
+            "Yes",
+            //  funPos = thisDisplay(),
+            "NO",
+            "Cancel",
+            true
         )
-
     }
 
-    fun display(): Int {
-        return ItceUtility.sum(16, 20)
-        // return (16 + 20)
+    private fun thisDisplay() {
+        ItceHelper.justToast(
+            this,
+            ItceUtility.sum(16, 20).toString(),
+            2
+        )
     }
 
 }

@@ -68,11 +68,11 @@ object ItceUtility {
         activity: Activity,
         message: String,
         modePos: String,
-        functionPos: Runnable,
+        functionPos: Runnable?,
         modeNeg: String,
-        functionNeg: Runnable,
+        functionNeg: Runnable?,
         modeNeut: String,
-        functionNeut: Runnable,
+        functionNeut: Runnable?,
         stopExecution: Boolean = false
     ): Answer {
         if (message.isNotEmpty() && message.isNotBlank()) {

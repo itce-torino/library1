@@ -40,7 +40,7 @@ object ItceUtility {
                 dialog.dismiss()
             }
             .setNegativeButton(modeNeg) { dialog, _ ->
-                choice = Answer.YES
+                choice = Answer.NO
                 userChoice(Answer.NO, funNeg)
                 dialog.dismiss()
             }
@@ -63,15 +63,17 @@ object ItceUtility {
                 .show()
     }
 
+    private fun none() = Runnable() {}
+
     fun showToast(
         activity: Activity,
         message: String,
         modePos: String,
-        functionPos: Runnable?,
+        functionPos: Any,
         modeNeg: String,
-        functionNeg: Runnable?,
+        functionNeg: Any,
         modeNeut: String,
-        functionNeut: Runnable?,
+        functionNeut: Any,
         stopExecution: Boolean = false
     ): Answer {
         if (message.isNotEmpty() && message.isNotBlank()) {
@@ -80,13 +82,17 @@ object ItceUtility {
                 or (message.startsWith("info", ignoreCase = true))
                 or (message.startsWith("question", ignoreCase = true))
                 or stopExecution
-            )
+            ) {
+                val posRun = functionPos as Runnable? ?: none()
+                val negRun = functionNeg as Runnable? ?: none()
+                val neutRun = functionNeut as Runnable? ?: none()
                 infoDialog(
                     activity, message,
                     modePos, functionPos,
                     modeNeg, functionNeg,
-                    modeNeut, functionNeut
+                    modeNeut, neutRun
                 )
+            }
             else
                 Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
         }

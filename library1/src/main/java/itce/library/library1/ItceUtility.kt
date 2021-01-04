@@ -65,7 +65,7 @@ object ItceUtility {
 
     private fun none() = Runnable() {}
 
-    fun showToast(
+    fun showDialog(
         activity: Activity,
         message: String,
         modePos: String,
@@ -96,13 +96,16 @@ object ItceUtility {
             else
                 Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
         }
-
         return choice
     }
 
-    fun todoFeature(activity: Activity) {
-        Toast.makeText(activity, "Sorry, this feature is not available, yet.", Toast.LENGTH_LONG)
-            .show()
+    fun showToast(activity: Activity, message: String, duration: Int) {
+        Toast.makeText(activity, message, duration).show()
+    }
 
+
+    fun todoFeature(activity: Activity) {
+        Toast.makeText(activity, "Sorry, this feature is not available yet.", Toast.LENGTH_LONG)
+            .show()
     }
 }

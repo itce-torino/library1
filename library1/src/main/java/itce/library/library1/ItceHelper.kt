@@ -5,8 +5,5 @@ import android.widget.Toast
 
 object ItceHelper {
 
-    fun justToast(activity: Activity, message: String, duration: Int) {
-        Toast.makeText(activity, message, duration).show()
-    }
 
 }

@@ -88,8 +88,8 @@ object ItceUtility {
                 val neutRun = functionNeut as Runnable? ?: none()
                 infoDialog(
                     activity, message,
-                    modePos, functionPos,
-                    modeNeg, functionNeg,
+                    modePos, posRun,
+                    modeNeg, negRun,
                     modeNeut, neutRun
                 )
             }

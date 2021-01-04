@@ -69,11 +69,11 @@ object ItceUtility {
         activity: Activity,
         message: String,
         modePos: String,
-        functionPos: Any,
+        functionPos: Any?,
         modeNeg: String,
-        functionNeg: Any,
+        functionNeg: Any?,
         modeNeut: String,
-        functionNeut: Any,
+        functionNeut: Any?,
         stopExecution: Boolean = false
     ): Answer {
         if (message.isNotEmpty() && message.isNotBlank()) {
